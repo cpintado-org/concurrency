@@ -11,7 +11,7 @@ on:
     branches: [ main ]
 
 concurrency:
-   group: build-deploy-${{ github.sha }}
+   group: build-deploy-${{ github.event.number }}
    cancel-in-progress: true
    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -27,7 +27,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          echo ${{ github.sha }}
-          echo ${{ github.ref }}
+          echo "sha ${{ github.sha }}"
+          echo "ref ${{ github.ref }}"
+          echo "event ${{ github.event.number }}"
 
 
