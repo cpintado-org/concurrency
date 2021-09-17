@@ -11,7 +11,8 @@ on:
     branches: [ main ]
 
 concurrency:
-   group: build-deploy-${{ github.event.number }}
+   group: build-deploy
+#   group: build-deploy-${{ github.event.number }}
    cancel-in-progress: true
    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
